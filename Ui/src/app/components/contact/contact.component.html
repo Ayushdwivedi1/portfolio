@@ -1,0 +1,172 @@
+<div class="contact">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">Let's work together on your next project</p>
+    </div>
+
+    <div class="contact-content">
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="info-content">
+            <h4>Location</h4>
+            <p>Vijay Nagar</p>
+            <span>Indore, Madhya Pradesh, India</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="info-content">
+            <h4>Email</h4>
+            <a href="mailto:ayushdwivedi920@gmail.com">ayushdwivedi920@gmail.com</a>
+            <span>Available for freelance opportunities</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="info-content">
+            <h4>Phone</h4>
+            <a href="tel:+919302124303">+91 9302124303</a>
+            <span>Available during business hours</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="info-content">
+            <h4>Availability</h4>
+            <p>Monday - Friday</p>
+            <span>9:00 AM - 6:00 PM IST</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <div class="form-header">
+          <h3>Send me a message</h3>
+          <p>I'm always interested in new opportunities and exciting projects.</p>
+        </div>
+
+        <form class="form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+          <div class="form-group">
+            <label for="name" class="form-label">Full Name *</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              [(ngModel)]="formData.name"
+              required
+              class="form-input"
+              placeholder="Enter your full name"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address *</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              [(ngModel)]="formData.email"
+              required
+              class="form-input"
+              placeholder="Enter your email address"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject *</label>
+            <input 
+              type="text" 
+              id="subject" 
+              name="subject" 
+              [(ngModel)]="formData.subject"
+              required
+              class="form-input"
+              placeholder="What's this about?"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Message *</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              [(ngModel)]="formData.message"
+              required
+              rows="5"
+              class="form-textarea"
+              placeholder="Tell me about your project or opportunity..."
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" [disabled]="isSubmitting">
+              <i class="fas fa-paper-plane" *ngIf="!isSubmitting"></i>
+              <i class="fas fa-spinner fa-spin" *ngIf="isSubmitting"></i>
+              {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="social-section">
+      <h3>Connect with me</h3>
+      <p>Follow me on social media for updates and insights</p>
+      
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/ayushdwivedi-/" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        
+        <a href="https://github.com/Ayushdwivedi1" target="_blank" class="social-link">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </a>
+        
+        <a href="mailto:ayushdwivedi920@gmail.com" class="social-link">
+          <i class="fas fa-envelope"></i>
+          <span>Email</span>
+        </a>
+        
+        <a href="tel:+919302124303" class="social-link">
+          <i class="fas fa-phone"></i>
+          <span>Call</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Contact -->
+    <div class="quick-contact">
+      <div class="quick-contact-card">
+        <div class="quick-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div class="quick-content">
+          <h4>Ready to start?</h4>
+          <p>Let's discuss your project requirements and timeline</p>
+          <a href="mailto:ayushdwivedi920@gmail.com" class="btn btn-secondary">
+            <i class="fas fa-envelope"></i>
+            Start a conversation
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

@@ -1,0 +1,10 @@
+{
+  "name": "portfolio-deployment",
+  "version": "1.0.0",
+  "description": "Deployment configuration for Ayush Dwivedi's portfolio",
+  "scripts": {
+    "build": "cd portfolio && npm install && npm run build",
+    "postbuild": "echo 'Build completed successfully!'"
+  },
+  "private": true
+} 
