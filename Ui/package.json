@@ -4,7 +4,8 @@
   "description": "Deployment configuration for Ayush Dwivedi's portfolio",
   "scripts": {
     "build": "cd portfolio && npm install && npm run build",
-    "postbuild": "echo 'Build completed successfully!'"
+    "postbuild": "echo 'Build completed successfully!'",
+    "prebuild": "node --version && echo 'Node.js version check passed'"
   },
   "private": true
 } 

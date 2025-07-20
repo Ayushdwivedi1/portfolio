@@ -55,7 +55,7 @@ In your Netlify dashboard, set these build settings:
 - **Base directory:** (leave empty)
 
 **Environment variables:**
-- `NODE_VERSION`: `18`
+- `NODE_VERSION`: `20`
 
 ### 3. Deployment Steps
 
@@ -109,7 +109,7 @@ You should see:
 
 If you still get build errors:
 
-1. **Check Node.js version**: Ensure you're using Node.js 18+
+1. **Check Node.js version**: Ensure you're using Node.js 20+
 2. **Clear cache**: In Netlify dashboard, go to Site settings > Build & deploy > Clear cache
 3. **Check build logs**: Look for specific error messages in the build output
 4. **Verify file paths**: Ensure all configuration files are in the correct locations
