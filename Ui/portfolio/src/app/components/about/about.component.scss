@@ -95,7 +95,7 @@
   padding: 1.5rem;
     background: var(--bg-secondary);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-color);
   transition: all var(--transition-fast);
     
@@ -125,7 +125,7 @@
     
       h4 {
       font-size: 1.1rem;
-      color: var(--text-primary);
+        color: var(--text-primary);
       margin-bottom: 0.5rem;
       font-weight: 600;
     }

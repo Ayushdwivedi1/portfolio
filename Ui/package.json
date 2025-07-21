@@ -2,13 +2,8 @@
   "name": "portfolio-deployment",
   "version": "1.0.0",
   "description": "Deployment configuration for Ayush Dwivedi's portfolio",
-  "engines": {
-    "node": ">=20.19.0",
-    "npm": ">=8.0.0"
-  },
   "scripts": {
-    "prebuild": "node -v && npm -v && echo 'Version check passed'",
-    "build": "cd portfolio && npm ci && npm run build",
+    "build": "ng build --configuration=production",
     "postbuild": "echo 'Build completed successfully!'"
   },
   "private": true
