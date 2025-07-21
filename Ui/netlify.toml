@@ -1,9 +1,10 @@
 [build]
+  base = "."
   publish = "portfolio/dist/portfolio/browser"
   command = "npm run build"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20.19.0"
 
 [[redirects]]
   from = "/*"
