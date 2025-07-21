@@ -167,7 +167,7 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(44, 62, 80, 0.98);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     flex-direction: column;
     gap: 0;
@@ -194,9 +194,12 @@
           padding: 1rem 2rem;
           border-radius: 0;
         border-bottom: 1px solid rgba(231, 76, 60, 0.2);
+        color: var(--text-primary);
+
 
           &:hover {
-          background: rgba(231, 76, 60, 0.15);
+            background: rgba(231, 76, 60, 0.1);
+            color: var(--accent-color);
           transform: none;
         }
       }
