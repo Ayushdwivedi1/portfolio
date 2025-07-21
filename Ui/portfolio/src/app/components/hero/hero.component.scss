@@ -1,7 +1,7 @@
 /* Hero Component Styles */
 
 .hero {
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   position: relative;
@@ -94,14 +94,15 @@
   color: var(--text-secondary);
   
   .profession-prefix {
-    font-weight: 400;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+    color: var(--text-primary);
   }
   
   .profession-text {
     font-weight: 600;
     color: var(--accent-color);
-    min-width: 300px;
+    min-width: 200px;
+    display: inline-block;
     
     &.typing {
       border-right: 3px solid var(--accent-color);
@@ -113,6 +114,7 @@
     color: var(--accent-color);
     font-weight: bold;
     animation: blink 1s infinite;
+    margin-left: 2px;
   }
 }
 
@@ -364,7 +366,8 @@
   
   .hero-subtitle {
     font-size: 1.2rem;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     gap: 0.5rem;
     
     .profession-text {

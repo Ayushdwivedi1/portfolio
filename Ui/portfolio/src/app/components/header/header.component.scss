@@ -132,7 +132,7 @@
   .hamburger-line {
     width: 25px;
     height: 3px;
-    background: #ffffff;
+    background: var(--text-primary);
     margin: 3px 0;
     border-radius: 2px;
     transition: all var(--transition-fast);
