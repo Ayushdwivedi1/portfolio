@@ -7,8 +7,8 @@
     "npm": ">=8.0.0"
   },
   "scripts": {
-    "prebuild": "node -v && echo 'Node.js version check passed'",
-    "build": "cd portfolio && npm install && npm run build",
+    "prebuild": "node -v && npm -v && echo 'Version check passed'",
+    "build": "cd portfolio && npm ci && npm run build",
     "postbuild": "echo 'Build completed successfully!'"
   },
   "private": true
