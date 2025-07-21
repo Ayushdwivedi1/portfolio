@@ -1,18 +1,20 @@
 /* Global Styles for Ayush Dwivedi Portfolio */
 
-/* CSS Variables for consistent theming */
+/* CSS Variables for consistent theming - Light Mode */
 :root {
   --primary-color: #2563eb;
   --primary-dark: #1d4ed8;
   --secondary-color: #7c3aed;
-  --accent-color: #06b6d4;
+  --accent-color: #dc2626;
+  --gold-accent: #f59e0b;
   --text-primary: #1f2937;
   --text-secondary: #6b7280;
   --text-light: #9ca3af;
   --bg-primary: #ffffff;
   --bg-secondary: #f9fafb;
-  --bg-dark: #111827;
+  --bg-tertiary: #f3f4f6;
   --border-color: #e5e7eb;
+  --border-light: #f3f4f6;
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -20,18 +22,10 @@
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-}
-
-/* Dark mode variables */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-primary: #f9fafb;
-    --text-secondary: #d1d5db;
-    --text-light: #9ca3af;
-    --bg-primary: #111827;
-    --bg-secondary: #1f2937;
-    --border-color: #374151;
-  }
+  --transition: all 0.3s ease;
+  --transition-fast: all 0.2s ease;
+  --border-radius: 0.5rem;
+  --border-radius-lg: 1rem;
 }
 
 /* Reset and base styles */
@@ -59,6 +53,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
+  color: var(--text-primary);
 }
 
 h1 {
@@ -93,6 +88,7 @@ a:hover {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--bg-primary);
 }
 
 .main-content {
@@ -105,12 +101,24 @@ a:hover {
   padding: 5rem 0;
   position: relative;
   scroll-margin-top: 80px; /* Account for fixed header */
+  background-color: var(--bg-primary);
 }
 
 .section-title {
   text-align: center;
   margin-bottom: 3rem;
   position: relative;
+}
+
+.section-title h2 {
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-title p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
 }
 
 .section-title::after {
@@ -167,6 +175,18 @@ a:hover {
 .btn-secondary:hover {
   background: var(--primary-color);
   color: white;
+}
+
+.btn-accent {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+}
+
+.btn-accent:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Card styles */
