@@ -2,7 +2,7 @@ services:
   - type: web
     name: portfolio-angular
     env: static
-    buildCommand: cd Ui/portfolio && npm install && npm run build:prod
+    buildCommand: npm run build
     staticPublishPath: ./Ui/portfolio/dist/portfolio/browser
     routes:
       - type: rewrite

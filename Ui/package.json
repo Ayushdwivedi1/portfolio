@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "Deployment configuration for Ayush Dwivedi's portfolio",
   "scripts": {
-    "build": "ng build --configuration=production",
+    "build": "cd portfolio && npm install && npm run build:prod",
+    "start": "cd portfolio && npm start",
+    "install": "cd portfolio && npm install",
     "postbuild": "echo 'Build completed successfully!'"
+  },
+  "engines": {
+    "node": ">=20.19.0",
+    "npm": ">=10.0.0"
   },
   "private": true
 } 

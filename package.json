@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-root",
+  "version": "1.0.0",
+  "description": "Portfolio project root configuration",
+  "scripts": {
+    "build": "cd Ui/portfolio && npm install && npm run build:prod",
+    "start": "cd Ui/portfolio && npm start",
+    "install": "cd Ui/portfolio && npm install",
+    "postbuild": "echo 'Build completed successfully!'"
+  },
+  "engines": {
+    "node": ">=20.19.0",
+    "npm": ">=10.0.0"
+  },
+  "private": true
+} 
