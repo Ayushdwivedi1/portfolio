@@ -31,7 +31,6 @@ export const environment = {
 
 ### 2. Test Production Build Locally
 ```bash
-cd Ui
 npm run build
 ```
 Verify the build completes without errors.
@@ -57,8 +56,8 @@ git push origin main
 2. Click "New +" → "Static Site"
 3. Connect your Git repository
 4. Configure:
-   - **Build Command**: `cd Ui && npm install && npm run build`
-   - **Publish Directory**: `Ui/dist/portfolio/browser`
+   - **Build Command**: `npm install && npm run build`
+   - **Publish Directory**: `dist/portfolio/browser`
    - **Environment Variable**: `NODE_VERSION` = `20`
 
 ## 🌐 Custom Domain Setup
@@ -91,19 +90,17 @@ git push origin main
 ## 📁 File Structure Summary
 
 ```
-portfolio/
-├── Ui/                          # Angular application
-│   ├── src/
-│   │   ├── environments/        # ✅ Environment configs
-│   │   │   ├── environment.ts   # Development
-│   │   │   └── environment.prod.ts # Production
-│   │   └── app/
-│   │       └── services/
-│   │           └── auth.service.ts # ✅ Updated for environments
-│   ├── angular.json
-│   └── package.json
+Ui/                              # Angular application
+├── src/
+│   ├── environments/            # ✅ Environment configs
+│   │   ├── environment.ts       # Development
+│   │   └── environment.prod.ts  # Production
+│   └── app/
+│       └── services/
+│           └── auth.service.ts  # ✅ Updated for environments
+├── angular.json
+├── package.json
 ├── render.yaml                  # ✅ Fixed paths
-├── package.json                 # ✅ Fixed paths
 ├── build.sh                     # ✅ Fixed paths
 ├── RENDER_DEPLOYMENT.md         # ✅ Updated
 ├── RENDER_DEPLOYMENT_GUIDE.md   # ✅ New comprehensive guide

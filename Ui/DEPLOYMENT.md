@@ -19,13 +19,13 @@ npm run build
 2. Click "New site from Git" or "Add new site" > "Deploy manually"
 3. If deploying manually, drag and drop the `dist/portfolio/browser` folder
 4. If using Git, connect your repository and set:
-   - Build command: `cd Ui && npm install && npm run build`
-   - Publish directory: `Ui/dist/portfolio/browser`
+   - Build command: `npm install && npm run build`
+   - Publish directory: `dist/portfolio/browser`
 
 #### Option B: Deploy via Netlify CLI
 1. Install Netlify CLI: `npm install -g netlify-cli`
 2. Login: `netlify login`
-3. Deploy: `netlify deploy --prod --dir=Ui/dist/portfolio/browser`
+3. Deploy: `netlify deploy --prod --dir=dist/portfolio/browser`
 
 ### 3. Configuration Files
 
@@ -51,8 +51,8 @@ If you need to set environment variables:
 
 ### 404 Errors
 - Ensure `public/_redirects` file is present
-- Check that `netlify.toml` is in the root directory
-- Verify build output directory is `Ui/dist/portfolio/browser`
+- Check that `netlify.toml` is in the current directory
+- Verify build output directory is `dist/portfolio/browser`
 
 ### Build Failures
 - Check Node.js version (should be 18+)
@@ -66,24 +66,22 @@ If you need to set environment variables:
 ## File Structure for Deployment
 
 ```
-portfolio/
-├── Ui/                     # Angular application
-│   ├── public/
-│   │   ├── _redirects      # Netlify redirects
-│   │   └── assets/         # Static assets
-│   ├── src/
-│   │   ├── index.html      # Main HTML file
-│   │   └── ...             # Angular source files
-│   ├── netlify.toml        # Netlify configuration
-│   ├── angular.json        # Angular configuration
-│   └── package.json        # Dependencies and scripts
-└── ...                     # Other project files
+Ui/                         # Angular application
+├── public/
+│   ├── _redirects          # Netlify redirects
+│   └── assets/             # Static assets
+├── src/
+│   ├── index.html          # Main HTML file
+│   └── ...                 # Angular source files
+├── netlify.toml            # Netlify configuration
+├── angular.json            # Angular configuration
+└── package.json            # Dependencies and scripts
 ```
 
 ## Build Output
 
-After running `cd Ui && npm run build`, the deployable files will be in:
-`Ui/dist/portfolio/browser/`
+After running `npm run build`, the deployable files will be in:
+`dist/portfolio/browser/`
 
 This directory contains:
 - `index.html` - Main entry point

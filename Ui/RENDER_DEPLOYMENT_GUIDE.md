@@ -18,8 +18,8 @@
 Use these exact settings in the Render dashboard:
 
 - **Name**: `portfolio-angular` (or your preferred name)
-- **Build Command**: `cd Ui && npm install && npm run build`
-- **Publish Directory**: `Ui/dist/portfolio/browser`
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist/portfolio/browser`
 - **Environment**: Static Site
 
 ### 3. Environment Variables
@@ -87,18 +87,16 @@ You can add environment variables in the Render dashboard for:
 
 ## File Structure
 ```
-portfolio/
-├── Ui/                     # Angular application
-│   ├── src/
-│   │   ├── environments/   # Environment configurations
-│   │   │   ├── environment.ts
-│   │   │   └── environment.prod.ts
-│   │   └── app/
-│   ├── angular.json
-│   └── package.json
-├── render.yaml             # Render configuration
-├── package.json            # Root package.json
-└── build.sh               # Build script
+Ui/                        # Angular application
+├── src/
+│   ├── environments/      # Environment configurations
+│   │   ├── environment.ts
+│   │   └── environment.prod.ts
+│   └── app/
+├── angular.json
+├── package.json
+├── render.yaml            # Render configuration
+└── build.sh              # Build script
 ```
 
 ## Troubleshooting
