@@ -47,7 +47,6 @@ This guide will help you deploy both your Angular frontend and Spring Boot backe
 
 5. Add Environment Variables:
    - `NODE_VERSION`: `20`
-   - `API_BASE_URL`: `https://your-backend-service-name.onrender.com` (replace with your actual backend URL)
 
 6. Click "Create Static Site"
 
@@ -77,7 +76,6 @@ spring.web.cors.allowed-origins=https://your-frontend-service-name.onrender.com
 
 ### Frontend Environment Variables:
 - `NODE_VERSION`: Set to `20`
-- `API_BASE_URL`: Your backend service URL
 
 ## Troubleshooting
 
@@ -101,6 +99,49 @@ spring.web.cors.allowed-origins=https://your-frontend-service-name.onrender.com
    - Verify Gmail app password is correct
    - Check if 2FA is enabled on Gmail account
    - Ensure app password has proper permissions
+
+### API Connection Issues (localhost:8080 Error)
+
+If you see errors like `Http failure response for http://localhost:8080/api/auth/register: 0 Unknown Error`, this means your frontend is still using the development environment instead of production.
+
+**Solution:**
+
+1. **Find your backend URL**:
+   - Go to your Render dashboard
+   - Find your backend service
+   - Copy the URL (e.g., `https://portfolio-backend.onrender.com`)
+
+2. **Update the API URL**:
+   ```bash
+   cd Ui
+   ./update-api-url.sh
+   ```
+   - Enter your backend service name when prompted
+   - The script will update `src/environments/environment.prod.ts`
+
+3. **Redeploy your frontend**:
+   ```bash
+   git add .
+   git commit -m "Update API URL for production"
+   git push origin main
+   ```
+
+4. **Verify the build is using production**:
+   - Check that `npm run build:prod` is being used
+   - Ensure the build output uses the production environment
+
+5. **Clear browser cache**:
+   - Hard refresh your browser (Ctrl+F5 or Cmd+Shift+R)
+   - Or clear browser cache completely
+
+**Manual Fix:**
+If the script doesn't work, manually update `src/environments/environment.prod.ts`:
+```typescript
+export const environment = {
+  production: true,
+  apiUrl: 'https://your-backend-service-name.onrender.com/api'
+};
+```
 
 ## Security Notes
 
