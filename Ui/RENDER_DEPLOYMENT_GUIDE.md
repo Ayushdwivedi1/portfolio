@@ -105,7 +105,7 @@ portfolio/
 
 ### Build Failures
 1. **Node version issues**: Ensure NODE_VERSION is set to 20
-2. **Path issues**: Verify build command uses `cd Ui` not `cd Ui/portfolio`
+2. **Path issues**: Verify build command uses `cd Ui` not `cd Ui`
 3. **Dependencies**: Check that all dependencies are in package.json
 
 ### 404 Errors on Routes

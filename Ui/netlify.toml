@@ -1,5 +1,5 @@
 [build]
-  base = "Ui/portfolio"
+  base = "Ui/"
   command = "npm run build:netlify"
   publish = "dist/portfolio/browser"
 
