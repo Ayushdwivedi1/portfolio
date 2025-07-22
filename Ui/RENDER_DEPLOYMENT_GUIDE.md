@@ -1,154 +1,124 @@
-# Render Deployment Guide for Portfolio
+# Render Deployment Guide for Portfolio (Frontend + Backend)
+
+This guide will help you deploy both your Angular frontend and Spring Boot backend on Render.
 
 ## Prerequisites
-- Node.js 20 or higher
-- npm package manager
-- Render account
-- Git repository with your code
 
-## Quick Deployment Steps
+1. A Render account
+2. A MySQL database (you can use Render's MySQL service or external providers like PlanetScale, Railway, etc.)
+3. Gmail account with App Password for email functionality
 
-### 1. Connect to Render
-1. Go to [Render Dashboard](https://dashboard.render.com/)
+## Step 1: Set Up Database
+
+1. Create a MySQL database on your preferred provider
+2. Note down the database URL, username, and password
+
+## Step 2: Deploy Backend First
+
+1. Go to your Render dashboard
+2. Click "New +" and select "Web Service"
+3. Connect your GitHub repository
+4. Configure the service:
+   - **Name**: `portfolio-backend`
+   - **Environment**: `Java`
+   - **Build Command**: `cd Backend/portfolio-microservice && ./mvnw clean package -DskipTests`
+   - **Start Command**: `cd Backend/portfolio-microservice && java -jar target/portfolio-0.0.1-SNAPSHOT.jar`
+   - **Java Version**: `17`
+
+5. Add Environment Variables:
+   - `SPRING_PROFILES_ACTIVE`: `production`
+   - `DATABASE_URL`: Your MySQL database URL
+   - `DATABASE_USERNAME`: Your database username
+   - `DATABASE_PASSWORD`: Your database password
+   - `GMAIL_USERNAME`: Your Gmail address
+   - `GMAIL_APP_PASSWORD`: Your Gmail app password
+
+6. Click "Create Web Service"
+
+## Step 3: Deploy Frontend
+
+1. Go to your Render dashboard
 2. Click "New +" and select "Static Site"
-3. Connect your Git repository
-4. Select the repository containing your portfolio
+3. Connect your GitHub repository
+4. Configure the service:
+   - **Name**: `portfolio-frontend`
+   - **Build Command**: `npm install && npm run build:prod`
+   - **Publish Directory**: `dist/portfolio/browser`
 
-### 2. Configure Build Settings
-Use these exact settings in the Render dashboard:
+5. Add Environment Variables:
+   - `NODE_VERSION`: `20`
+   - `API_BASE_URL`: `https://your-backend-service-name.onrender.com` (replace with your actual backend URL)
 
-- **Name**: `portfolio-angular` (or your preferred name)
-- **Build Command**: `npm install && npm run build`
-- **Publish Directory**: `dist/portfolio/browser`
-- **Environment**: Static Site
+6. Click "Create Static Site"
 
-### 3. Environment Variables
-Add these environment variables in Render dashboard:
-- `NODE_VERSION`: `20`
+## Step 4: Update CORS Configuration
 
-### 4. Deploy
-1. Click "Create Static Site"
-2. Render will automatically build and deploy your application
-3. Your site will be available at the provided URL
+After deploying the backend, update the CORS configuration in `application-production.properties`:
 
-## Alternative: Using render.yaml (Recommended)
-
-The project includes a `render.yaml` file for automated deployment:
-
-1. In Render dashboard, select "Blueprint" instead of "Static Site"
-2. Render will automatically detect and use the `render.yaml` configuration
-3. Follow the prompts to deploy
-
-## Custom Domain Setup
-
-### 1. Add Custom Domain in Render
-1. In your Render dashboard, go to your static site
-2. Click "Settings" → "Custom Domains"
-3. Add your domain (e.g., `yourdomain.com`)
-
-### 2. Configure DNS
-Render will provide you with DNS records to add to your domain provider:
-
-**For apex domain (yourdomain.com):**
-- Type: `A`
-- Name: `@`
-- Value: `76.76.19.19`
-
-**For www subdomain (www.yourdomain.com):**
-- Type: `CNAME`
-- Name: `www`
-- Value: `your-render-app.onrender.com`
-
-### 3. SSL Certificate
-- Render automatically provides SSL certificates
-- Wait 24-48 hours for SSL to be fully active
-
-## Environment Configuration
-
-### Backend API Configuration
-Before deploying, update the production API URL:
-
-1. Edit `src/environments/environment.prod.ts`:
-```typescript
-export const environment = {
-  production: true,
-  apiUrl: 'https://your-backend-domain.com/api' // Replace with your actual backend URL
-};
+```properties
+spring.web.cors.allowed-origins=https://your-frontend-service-name.onrender.com
 ```
 
-2. If your backend is also on Render, use the Render-provided URL
+## Step 5: Test Your Deployment
 
-### Environment Variables for Different Environments
-You can add environment variables in the Render dashboard for:
-- API endpoints
-- Feature flags
-- Analytics keys
-- Other configuration
+1. Test your backend API endpoints
+2. Test your frontend application
+3. Verify that frontend can communicate with backend
 
-## File Structure
-```
-Ui/                        # Angular application
-├── src/
-│   ├── environments/      # Environment configurations
-│   │   ├── environment.ts
-│   │   └── environment.prod.ts
-│   └── app/
-├── angular.json
-├── package.json
-├── render.yaml            # Render configuration
-└── build.sh              # Build script
-```
+## Environment Variables Reference
+
+### Backend Environment Variables:
+- `SPRING_PROFILES_ACTIVE`: Set to `production`
+- `DATABASE_URL`: MySQL connection string
+- `DATABASE_USERNAME`: Database username
+- `DATABASE_PASSWORD`: Database password
+- `GMAIL_USERNAME`: Gmail address for sending emails
+- `GMAIL_APP_PASSWORD`: Gmail app password
+
+### Frontend Environment Variables:
+- `NODE_VERSION`: Set to `20`
+- `API_BASE_URL`: Your backend service URL
 
 ## Troubleshooting
 
-### Build Failures
-1. **Node version issues**: Ensure NODE_VERSION is set to 20
-2. **Path issues**: Verify build command uses `cd Ui` not `cd Ui`
-3. **Dependencies**: Check that all dependencies are in package.json
+### Common Issues:
 
-### 404 Errors on Routes
-- The `render.yaml` includes SPA routing configuration
-- All routes should redirect to `index.html`
+1. **Build Failures**:
+   - Check if all dependencies are properly configured
+   - Verify Maven wrapper permissions
+   - Ensure Node.js version compatibility
 
-### Assets Not Loading
-- Verify `publishDirectory` points to `Ui/dist/portfolio/browser`
-- Check that assets are included in the build output
+2. **Database Connection Issues**:
+   - Verify database credentials
+   - Check if database is accessible from Render
+   - Ensure database URL format is correct
 
-### API Connection Issues
-- Ensure production API URL is correctly set in `environment.prod.ts`
-- Check CORS settings on your backend
-- Verify SSL certificates are valid
+3. **CORS Issues**:
+   - Update CORS configuration with correct frontend URL
+   - Check if backend is properly configured for CORS
 
-## Monitoring and Maintenance
+4. **Email Service Issues**:
+   - Verify Gmail app password is correct
+   - Check if 2FA is enabled on Gmail account
+   - Ensure app password has proper permissions
 
-### Build Logs
-- View detailed build logs in the Render dashboard
-- Set up notifications for build failures
+## Security Notes
 
-### Performance
-- Monitor performance using Render's built-in analytics
-- Check Core Web Vitals in Google PageSpeed Insights
+1. Never commit sensitive information like passwords to your repository
+2. Use environment variables for all sensitive configuration
+3. Regularly rotate your Gmail app password
+4. Use HTTPS for all production communications
 
-### Updates
-- Push changes to your Git repository
-- Render will automatically rebuild and deploy
-- Monitor build status in the dashboard
+## Monitoring
 
-## Security Considerations
-
-1. **Environment Variables**: Never commit sensitive data to Git
-2. **API Keys**: Store API keys as environment variables in Render
-3. **HTTPS**: Render provides automatic SSL certificates
-4. **CORS**: Configure your backend to allow requests from your domain
+1. Use Render's built-in logging to monitor your applications
+2. Set up health checks for your backend service
+3. Monitor database connections and performance
+4. Set up alerts for service downtime
 
 ## Cost Optimization
 
-- Render's static site hosting is free for basic usage
-- Monitor usage in the dashboard
-- Consider paid plans for additional features or higher limits
-
-## Support
-
-- Render Documentation: https://render.com/docs
-- Render Community: https://community.render.com
-- Angular Documentation: https://angular.io/docs 
+1. Use Render's free tier for development
+2. Scale up only when needed
+3. Monitor usage to avoid unexpected charges
+4. Consider using external database providers for better pricing 
