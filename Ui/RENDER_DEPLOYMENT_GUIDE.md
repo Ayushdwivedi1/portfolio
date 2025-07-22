@@ -18,7 +18,7 @@
 Use these exact settings in the Render dashboard:
 
 - **Name**: `portfolio-angular` (or your preferred name)
-- **Build Command**: `cd Ui && npm install && npm run build:prod`
+- **Build Command**: `cd Ui && npm install && npm run build`
 - **Publish Directory**: `Ui/dist/portfolio/browser`
 - **Environment**: Static Site
 

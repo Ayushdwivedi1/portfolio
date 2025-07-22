@@ -21,8 +21,8 @@ This guide will help you deploy your Angular portfolio application to Render.
 Use these settings in the Render dashboard:
 
 - **Name**: `portfolio-angular` (or any name you prefer)
-- **Build Command**: `cd Ui/portfolio && npm install && npm run build:prod`
-- **Publish Directory**: `Ui/portfolio/dist/portfolio/browser`
+- **Build Command**: `cd Ui && npm install && npm run build`
+- **Publish Directory**: `Ui/dist/portfolio/browser`
 - **Environment**: Static Site
 
 ### 3. Environment Variables
@@ -54,7 +54,7 @@ If you prefer to use the `render.yaml` file (already created in the root):
 
 ### Build Output Location
 
-The Angular build outputs to: `Ui/portfolio/dist/portfolio/browser`
+The Angular build outputs to: `Ui/dist/portfolio/browser`
 
 This is configured in the `angular.json` file and matches the `staticPublishPath` in `render.yaml`.
 

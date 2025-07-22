@@ -1,6 +1,6 @@
 [build]
-  base = "Ui/portfolio"
-  command = "npm run build:netlify"
+  base = "Ui"
+  command = "npm run build"
   publish = "dist/portfolio/browser"
 
 [build.environment]

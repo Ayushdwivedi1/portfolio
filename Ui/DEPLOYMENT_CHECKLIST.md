@@ -32,7 +32,7 @@ export const environment = {
 ### 2. Test Production Build Locally
 ```bash
 cd Ui
-npm run build:prod
+npm run build
 ```
 Verify the build completes without errors.
 
@@ -57,7 +57,7 @@ git push origin main
 2. Click "New +" → "Static Site"
 3. Connect your Git repository
 4. Configure:
-   - **Build Command**: `cd Ui && npm install && npm run build:prod`
+   - **Build Command**: `cd Ui && npm install && npm run build`
    - **Publish Directory**: `Ui/dist/portfolio/browser`
    - **Environment Variable**: `NODE_VERSION` = `20`
 
