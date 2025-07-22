@@ -1,11 +1,18 @@
 [build]
-  publish = "portfolio/dist/portfolio/browser"
-  command = "npm run build"
+  base = "Ui/portfolio"
+  command = "npm run build:netlify"
+  publish = "dist/portfolio/browser"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--legacy-peer-deps"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200 
+  status = 200
+
+[dev]
+  command = "npm start"
+  port = 4200
+  publish = "dist/portfolio/browser" 

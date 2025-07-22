@@ -1,7 +1,7 @@
 /* Experience Component Styles */
 
 .experience {
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
   position: relative;
   padding-top: 2rem;
   
@@ -24,7 +24,7 @@
   
   h2 {
     font-size: 2.5rem;
-    color: white;
+    color: var(--text-primary);
     margin-bottom: 1rem;
     position: relative;
     
@@ -75,7 +75,7 @@
     animation: fadeInRight 0.8s ease-out;
     .marker-dot {
       background: var(--accent-color);
-      box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.2);
+      box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.2);
     }
   }
   
@@ -83,7 +83,7 @@
     animation: fadeInUp 0.8s ease-out;
     .marker-dot {
       background: var(--gold-accent);
-      box-shadow: 0 0 0 4px rgba(243, 156, 18, 0.2);
+      box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
     }
   }
 }
@@ -162,8 +162,8 @@
   margin-bottom: 1.5rem;
   gap: 2rem;
 }
-
-.company-info {
+  
+  .company-info {
   flex: 1;
   
   .job-title {
@@ -189,20 +189,20 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
+        font-size: 0.9rem;
+          color: var(--text-secondary);
       
       i {
         color: var(--accent-color);
         font-size: 0.8rem;
+        }
       }
     }
   }
-}
-
+  
 .company-logo {
   flex-shrink: 0;
-  
+    
   .logo-placeholder {
     width: 60px;
     height: 60px;
@@ -228,8 +228,8 @@
   margin-bottom: 1.5rem;
   
   p {
-    color: var(--text-secondary);
-    line-height: 1.7;
+      color: var(--text-secondary);
+      line-height: 1.7;
     margin-bottom: 0;
   }
 }
@@ -340,20 +340,20 @@
     i {
       color: white;
       font-size: 1.2rem;
-    }
+  }
   }
   
   .summary-content {
     h3 {
-      color: var(--text-primary);
+    color: var(--text-primary);
       margin-bottom: 0.5rem;
       font-size: 1.2rem;
       font-weight: 600;
-    }
-    
-    p {
-      color: var(--text-secondary);
-      line-height: 1.6;
+  }
+  
+  p {
+    color: var(--text-secondary);
+    line-height: 1.6;
       margin-bottom: 0;
     }
   }
@@ -386,8 +386,8 @@
   }
   
   .timeline-marker .marker-dot {
-    width: 16px;
-    height: 16px;
+      width: 16px;
+      height: 16px;
   }
   
   .experience-header {

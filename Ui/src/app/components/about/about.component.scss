@@ -1,7 +1,7 @@
 /* About Component Styles */
 
 .about {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   position: relative;
   
   &::before {
@@ -21,19 +21,34 @@
 }
 
 .section-title {
-  margin-bottom: 1rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  padding-top: 2rem;
   position: relative;
   
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    border-radius: 2px;
+  h2 {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-color), var(--gold-accent));
+      border-radius: 2px;
+    }
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0;
   }
 }
 
@@ -54,10 +69,10 @@
   animation: fadeInLeft 0.8s ease forwards;
 }
 
-.about-intro {
+  .about-intro {
   margin-bottom: 3rem;
-  
-  h3 {
+    
+    h3 {
     font-size: 2rem;
     color: var(--accent-color);
     margin-bottom: 1.5rem;
@@ -86,46 +101,46 @@
 .about-details {
   margin-bottom: 3rem;
 }
-
-.detail-item {
-  display: flex;
+  
+  .detail-item {
+    display: flex;
   align-items: flex-start;
   gap: 1.5rem;
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: var(--bg-primary);
+    background: var(--bg-secondary);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-light);
+    box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-color);
   transition: all var(--transition-fast);
-  
-  &:hover {
+    
+    &:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-medium);
-  }
-  
-  .detail-icon {
+    }
+    
+    .detail-icon {
     width: 50px;
     height: 50px;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     flex-shrink: 0;
     
     i {
       color: white;
       font-size: 1.2rem;
     }
-  }
-  
-  .detail-content {
+    }
+    
+    .detail-content {
     flex: 1;
     
-    h4 {
+      h4 {
       font-size: 1.1rem;
-      color: var(--text-primary);
+        color: var(--text-primary);
       margin-bottom: 0.5rem;
       font-weight: 600;
     }
@@ -133,18 +148,18 @@
     p {
       font-size: 1rem;
       color: var(--text-secondary);
-      margin-bottom: 0.25rem;
+          margin-bottom: 0.25rem;
       font-weight: 500;
-    }
-    
+        }
+        
     .detail-meta {
-      font-size: 0.9rem;
+          font-size: 0.9rem;
       color: var(--text-light);
       font-style: italic;
+        }
+      }
     }
-  }
-}
-
+    
 .about-achievements {
   h4 {
     font-size: 1.3rem;
@@ -195,8 +210,8 @@
       
       &:last-child {
         margin-bottom: 0;
-      }
-    }
+  }
+}
   }
 }
 
@@ -243,29 +258,29 @@
     height: 60px;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     margin: 0 auto 1rem;
     
     i {
       color: white;
       font-size: 1.5rem;
     }
-  }
-  
+    }
+    
   .stat-content {
     .stat-number {
       font-size: 2.5rem;
       font-weight: 700;
       color: var(--accent-color);
       line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-    
+        margin-bottom: 0.5rem;
+      }
+      
     .stat-label {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
+        font-size: 0.9rem;
+          color: var(--text-secondary);
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -274,7 +289,7 @@
 }
 
 .about-cta {
-  text-align: center;
+    text-align: center;
   
   .btn {
     padding: 1rem 2rem;
@@ -388,6 +403,24 @@
     
     .detail-icon {
       margin: 0 auto;
+    }
+    
+    .detail-content {
+      flex: none;
+      width: 100%;
+      text-align: center;
+      
+      h4 {
+        text-align: center;
+      }
+      
+      p {
+        text-align: center;
+      }
+      
+      .detail-meta {
+        text-align: center;
+      }
     }
   }
   
