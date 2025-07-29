@@ -1,0 +1,39 @@
+services:
+  # Backend Service (Spring Boot)
+  - type: web
+    name: portfolio-backend
+    env: java
+    buildCommand: cd Backend/portfolio-microservice && ./mvnw clean package -DskipTests
+    startCommand: cd Backend/portfolio-microservice && java -jar target/portfolio-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: JAVA_VERSION
+        value: 17
+      - key: SPRING_PROFILES_ACTIVE
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_USERNAME
+        sync: false
+      - key: DATABASE_PASSWORD
+        sync: false
+      - key: GMAIL_USERNAME
+        sync: false
+      - key: GMAIL_APP_PASSWORD
+        sync: false
+    healthCheckPath: /actuator/health
+    autoDeploy: true
+
+  # Frontend Service (Angular)
+  - type: web
+    name: portfolio-frontend
+    env: static
+    buildCommand: npm install && npm run build:prod
+    staticPublishPath: ./dist/portfolio/browser
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+    autoDeploy: true 
