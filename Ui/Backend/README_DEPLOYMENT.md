@@ -24,7 +24,7 @@ Set these environment variables in your Render.com dashboard:
 - `GMAIL_APP_PASSWORD`: Gmail App Password (not regular password)
 
 ### Application Configuration
-- `SPRING_PROFILES_ACTIVE`: Set to `production`
+- `SPRING_PROFILES_ACTIVE`: Set to `production` (this will use application-production.properties)
 - `PORT`: Usually set automatically by Render (default: 8080)
 
 ## Deployment Steps
@@ -43,7 +43,7 @@ Set these environment variables in your Render.com dashboard:
    - **Environment**: Java
    - **Build Command**: `cd portfolio-microservice && ./mvnw clean package -DskipTests`
    - **Start Command**: `cd portfolio-microservice && java -jar target/portfolio-0.0.1-SNAPSHOT.jar`
-4. Add all environment variables
+4. Add all environment variables (including `SPRING_PROFILES_ACTIVE=production`)
 5. Deploy
 
 ## Database Setup
